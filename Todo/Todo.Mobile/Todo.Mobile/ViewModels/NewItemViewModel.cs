@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
-using Todo.Mobile.Models;
+using ToDo.Mobile.Models;
 using Xamarin.Forms;
 
-namespace Todo.Mobile.ViewModels
+namespace ToDo.Mobile.ViewModels
 {
     public class NewItemViewModel : BaseViewModel
     {

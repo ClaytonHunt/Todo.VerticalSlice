@@ -3,7 +3,7 @@ using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-namespace Todo.Mobile.ViewModels
+namespace ToDo.Mobile.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {

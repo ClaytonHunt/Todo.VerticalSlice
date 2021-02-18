@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Todo.Mobile.Models;
-using Todo.Mobile.Services;
+using ToDo.Mobile.Models;
+using ToDo.Mobile.Services;
 using Xamarin.Forms;
 
-namespace Todo.Mobile.ViewModels
+namespace ToDo.Mobile.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

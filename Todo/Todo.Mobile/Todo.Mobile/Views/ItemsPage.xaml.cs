@@ -4,13 +4,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Todo.Mobile.Models;
-using Todo.Mobile.ViewModels;
-using Todo.Mobile.Views;
+using ToDo.Mobile.Models;
+using ToDo.Mobile.ViewModels;
+using ToDo.Mobile.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Todo.Mobile.Views
+namespace ToDo.Mobile.Views
 {
     public partial class ItemsPage : ContentPage
     {

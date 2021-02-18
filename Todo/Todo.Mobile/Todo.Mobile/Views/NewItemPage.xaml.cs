@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Todo.Mobile.Models;
-using Todo.Mobile.ViewModels;
+using ToDo.Mobile.Models;
+using ToDo.Mobile.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Todo.Mobile.Views
+namespace ToDo.Mobile.Views
 {
     public partial class NewItemPage : ContentPage
     {

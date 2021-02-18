@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF66BDAD-0C6D-4880-A93C-52EB0649E085}</ProjectGuid>
+    <ProjectGuid>{10198A8E-36E3-495C-BD84-D339BBCE2A3F}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6968b3a4-1835-46a3-ac5c-1ae33b475983}</TemplateGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Todo.Mobile.Droid</RootNamespace>
-    <AssemblyName>Todo.Mobile.Android</AssemblyName>
+    <RootNamespace>ToDo.Mobile.Droid</RootNamespace>
+    <AssemblyName>ToDo.Mobile.Android</AssemblyName>
     <Deterministic>True</Deterministic>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
@@ -89,10 +89,15 @@
     <AndroidResource Include="Resources\drawable\icon_feed.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Todo.Mobile\Todo.Mobile.csproj">
-      <Project>{AACCFC6F-9E4F-4B33-A767-3EB021A1BE80}</Project>
-      <Name>Todo.Mobile</Name>
+    <ProjectReference Include="..\ToDo.Mobile\ToDo.Mobile.csproj">
+      <Project>{A9246224-637E-4A04-B0C4-70F99F1EB627}</Project>
+      <Name>ToDo.Mobile</Name>
     </ProjectReference>
   </ItemGroup>
- <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties TriggeredFromHotReload="False" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

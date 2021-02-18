@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Todo.Mobile.Models
+namespace ToDo.Mobile.Models
 {
     public class Item
     {

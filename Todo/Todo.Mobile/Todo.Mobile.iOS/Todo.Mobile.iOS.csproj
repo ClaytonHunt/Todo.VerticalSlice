@@ -5,13 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5CB3CB47-FDB6-4033-8F98-FF8582238F6F}</ProjectGuid>
+    <ProjectGuid>{7CCD8DFD-EEAC-47EE-9F39-D0E434BC69F6}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{89a4fe7c-635d-49c9-8d8c-5cd363c0d68d}</TemplateGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Todo.Mobile.iOS</RootNamespace>
+    <RootNamespace>ToDo.Mobile.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Todo.Mobile.iOS</AssemblyName>
+    <AssemblyName>ToDo.Mobile.iOS</AssemblyName>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <ProvisioningType>automatic</ProvisioningType>
@@ -137,9 +137,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Todo.Mobile\Todo.Mobile.csproj">
-      <Project>{AACCFC6F-9E4F-4B33-A767-3EB021A1BE80}</Project>
-      <Name>Todo.Mobile</Name>
+    <ProjectReference Include="..\ToDo.Mobile\ToDo.Mobile.csproj">
+      <Project>{A9246224-637E-4A04-B0C4-70F99F1EB627}</Project>
+      <Name>ToDo.Mobile</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

@@ -2,11 +2,11 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Todo.Mobile.Models;
-using Todo.Mobile.Views;
+using ToDo.Mobile.Models;
+using ToDo.Mobile.Views;
 using Xamarin.Forms;
 
-namespace Todo.Mobile.ViewModels
+namespace ToDo.Mobile.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {

@@ -1,10 +1,10 @@
 ﻿using System;
-using Todo.Mobile.Services;
-using Todo.Mobile.Views;
+using ToDo.Mobile.Services;
+using ToDo.Mobile.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Todo.Mobile
+namespace ToDo.Mobile
 {
     public partial class App : Application
     {

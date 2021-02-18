@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Todo.Mobile.Views;
+using ToDo.Mobile.Views;
 using Xamarin.Forms;
 
-namespace Todo.Mobile.ViewModels
+namespace ToDo.Mobile.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {

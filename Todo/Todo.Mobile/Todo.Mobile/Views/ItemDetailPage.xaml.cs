@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
-using Todo.Mobile.ViewModels;
+using ToDo.Mobile.ViewModels;
 using Xamarin.Forms;
 
-namespace Todo.Mobile.Views
+namespace ToDo.Mobile.Views
 {
     public partial class ItemDetailPage : ContentPage
     {

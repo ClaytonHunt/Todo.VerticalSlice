@@ -3,7 +3,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Todo.Mobile.Views
+namespace ToDo.Mobile.Views
 {
     public partial class AboutPage : ContentPage
     {

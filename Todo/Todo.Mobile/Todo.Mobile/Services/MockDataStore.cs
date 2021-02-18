@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Todo.Mobile.Models;
+using ToDo.Mobile.Models;
 
-namespace Todo.Mobile.Services
+namespace ToDo.Mobile.Services
 {
     public class MockDataStore : IDataStore<Item>
     {

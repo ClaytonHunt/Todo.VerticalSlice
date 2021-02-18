@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Todo.Mobile.Services
+namespace ToDo.Mobile.Services
 {
     public interface IDataStore<T>
     {

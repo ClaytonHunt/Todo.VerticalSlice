@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Todo.Mobile.ViewModels;
-using Todo.Mobile.Views;
+using ToDo.Mobile.ViewModels;
+using ToDo.Mobile.Views;
 using Xamarin.Forms;
 
-namespace Todo.Mobile
+namespace ToDo.Mobile
 {
     public partial class AppShell : Xamarin.Forms.Shell
     {
