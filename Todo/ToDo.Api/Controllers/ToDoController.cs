@@ -55,8 +55,7 @@ namespace Todo.Api.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("{id}")]
+        [HttpGet("{id}")]
         public Task<IActionResult> GetToDo([FromQuery] string id)
         {
             try
@@ -69,8 +68,7 @@ namespace Todo.Api.Controllers
             }
         }
 
-        [HttpPut]
-        [Route("{id}")]
+        [HttpPut("{id}")]
         public Task<IActionResult> UpdateToDo([FromRoute] string id, [FromBody] ToDoItem todo)
         {
             try
