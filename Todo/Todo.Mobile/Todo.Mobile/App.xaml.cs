@@ -1,8 +1,5 @@
-﻿using System;
-using ToDo.Mobile.Services;
-using ToDo.Mobile.Views;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
+using ToDo.Mobile.Data;
 
 namespace ToDo.Mobile
 {
@@ -13,7 +10,8 @@ namespace ToDo.Mobile
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<DataStore>();
+
             MainPage = new AppShell();
         }
 

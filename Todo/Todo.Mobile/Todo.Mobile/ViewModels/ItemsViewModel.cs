@@ -2,30 +2,33 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using ToDo.Mobile.Models;
 using ToDo.Mobile.Views;
+using ToDo.Shared;
 using Xamarin.Forms;
 
 namespace ToDo.Mobile.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        private Item _selectedItem;
+        private ToDoItem _selectedItem;
 
-        public ObservableCollection<Item> Items { get; }
+        public ObservableCollection<ToDoItem> Items { get; }
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
-        public Command<Item> ItemTapped { get; }
+        public Command<ToDoItem> ItemTapped { get; }
+        public Command<ToDoItem> CompleteItem { get;set; }
 
         public ItemsViewModel()
         {
             Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Items = new ObservableCollection<ToDoItem>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            ItemTapped = new Command<Item>(OnItemSelected);
+            ItemTapped = new Command<ToDoItem>(OnItemSelected);
 
             AddItemCommand = new Command(OnAddItem);
+
+            CompleteItem = new Command<ToDoItem>(OnCompleteItem);
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -57,7 +60,7 @@ namespace ToDo.Mobile.ViewModels
             SelectedItem = null;
         }
 
-        public Item SelectedItem
+        public ToDoItem SelectedItem
         {
             get => _selectedItem;
             set
@@ -72,7 +75,13 @@ namespace ToDo.Mobile.ViewModels
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
-        async void OnItemSelected(Item item)
+        private async void OnCompleteItem(ToDoItem todo)
+        {
+            // todo.IsCompleted = true;
+            await Task.Run(() => { });
+        }
+
+        async void OnItemSelected(ToDoItem item)
         {
             if (item == null)
                 return;

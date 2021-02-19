@@ -1,41 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
-using ToDo.Mobile.Models;
+using ToDo.Shared;
 using Xamarin.Forms;
 
 namespace ToDo.Mobile.ViewModels
 {
     public class NewItemViewModel : BaseViewModel
     {
-        private string text;
-        private string description;
+        private string _task;
 
         public NewItemViewModel()
         {
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
-            this.PropertyChanged +=
-                (_, __) => SaveCommand.ChangeCanExecute();
+            PropertyChanged += (_, __) => SaveCommand.ChangeCanExecute();
         }
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
+            return !string.IsNullOrWhiteSpace(_task);
         }
 
-        public string Text
+        public string Task
         {
-            get => text;
-            set => SetProperty(ref text, value);
-        }
-
-        public string Description
-        {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => _task;
+            set => SetProperty(ref _task, value);
         }
 
         public Command SaveCommand { get; }
@@ -49,11 +37,10 @@ namespace ToDo.Mobile.ViewModels
 
         private async void OnSave()
         {
-            Item newItem = new Item()
+            var newItem = new ToDoItem
             {
                 Id = Guid.NewGuid().ToString(),
-                Text = Text,
-                Description = Description
+                Task = Task
             };
 
             await DataStore.AddItemAsync(newItem);

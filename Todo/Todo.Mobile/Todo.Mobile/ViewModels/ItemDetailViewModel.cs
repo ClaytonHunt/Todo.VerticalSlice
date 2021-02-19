@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
-using ToDo.Mobile.Models;
 using Xamarin.Forms;
 
 namespace ToDo.Mobile.ViewModels
@@ -9,32 +7,22 @@ namespace ToDo.Mobile.ViewModels
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public class ItemDetailViewModel : BaseViewModel
     {
-        private string itemId;
-        private string text;
-        private string description;
+        private string _itemId;
+        private string _task;
         public string Id { get; set; }
 
-        public string Text
+        public string Task
         {
-            get => text;
-            set => SetProperty(ref text, value);
-        }
-
-        public string Description
-        {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => _task;
+            set => SetProperty(ref _task, value);
         }
 
         public string ItemId
         {
-            get
-            {
-                return itemId;
-            }
+            get => _itemId;
             set
             {
-                itemId = value;
+                _itemId = value;
                 LoadItemId(value);
             }
         }
@@ -45,8 +33,7 @@ namespace ToDo.Mobile.ViewModels
             {
                 var item = await DataStore.GetItemAsync(itemId);
                 Id = item.Id;
-                Text = item.Text;
-                Description = item.Description;
+                Task = item.Task;
             }
             catch (Exception)
             {
