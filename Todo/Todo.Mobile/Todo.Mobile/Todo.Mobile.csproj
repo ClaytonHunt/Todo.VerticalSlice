@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -14,5 +14,11 @@
     <ProjectReference Include="..\..\ToDo.Mobile.Business\ToDo.Mobile.Business.csproj" />
     <ProjectReference Include="..\..\ToDo.Mobile.Data\ToDo.Mobile.Data.csproj" />
     <ProjectReference Include="..\..\ToDo.Shared\ToDo.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\ItemSummaryView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

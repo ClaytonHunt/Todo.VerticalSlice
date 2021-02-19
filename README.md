@@ -10,7 +10,7 @@ ToDo: Text describing a task that needs to be completed.
 	The user requires the ability to remove a ToDo that is no longer wanted.
 - [] Complete a ToDo
 	The user requires the ability to complete a ToDo that has been finished.
-- [] Authentication
+- [] Authentication (Stretch Goal)
 	The user needs to access previously created ToDos so we want a username and password so we can get the data from the server.
 - [] Journal (Stretch Goal)
 	The user wants to be able to see ToDos completed over time.

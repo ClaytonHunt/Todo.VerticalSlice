@@ -5,7 +5,7 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:ToDo.Mobile.ViewModels"
              xmlns:shared="clr-namespace:ToDo.Shared;assembly=ToDo.Shared"
-             xmlns:behaviors="clr-namespace:ToDo.Mobile.Behaviors;assembly=ToDo.Mobile"
+             xmlns:views="clr-namespace:ToDo.Mobile.Views;assembly=ToDo.Mobile"
              x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>
@@ -23,21 +23,7 @@
                 <DataTemplate>
                     <StackLayout Padding="10" x:DataType="shared:ToDoItem">
                         <Frame>
-                            <StackLayout Orientation="Horizontal">
-                                <CheckBox Color="{StaticResource Primary}" IsChecked="{Binding IsCompleted, Mode=OneWay}">
-                                    <!--<CheckBox.Behaviors>
-                                        <behaviors:ChangedEventWithParameterBehavior
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
-                                        CommandParameter="{Binding .}">
-                                        </behaviors:ChangedEventWithParameterBehavior>
-                                    </CheckBox.Behaviors>-->
-                                </CheckBox>
-                                <Label Text="{Binding Task}" 
-                                   LineBreakMode="NoWrap" 
-                                   VerticalTextAlignment="Center"
-                                   Style="{DynamicResource ListItemTextStyle}" 
-                                   FontSize="16" />
-                            </StackLayout>
+                            <views:ItemSummaryView Source="{Binding .}"></views:ItemSummaryView>
                         </Frame>
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
