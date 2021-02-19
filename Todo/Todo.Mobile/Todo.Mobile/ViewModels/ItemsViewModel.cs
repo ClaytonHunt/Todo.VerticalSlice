@@ -12,7 +12,7 @@ namespace ToDo.Mobile.ViewModels
     {
         private ToDoItem _selectedItem;
 
-        public ObservableCollection<ToDoItem> Items { get; }
+        public ObservableCollection<ItemSummaryViewModel> Items { get; }
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
         public Command<ToDoItem> ItemTapped { get; }
@@ -21,7 +21,7 @@ namespace ToDo.Mobile.ViewModels
         public ItemsViewModel()
         {
             Title = "Browse";
-            Items = new ObservableCollection<ToDoItem>();
+            Items = new ObservableCollection<ItemSummaryViewModel>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             ItemTapped = new Command<ToDoItem>(OnItemSelected);
@@ -41,7 +41,7 @@ namespace ToDo.Mobile.ViewModels
                 var items = await DataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
-                    Items.Add(item);
+                    Items.Add(new ItemSummaryViewModel{ Item = item, CompleteItem = CompleteItem});
                 }
             }
             catch (Exception ex)

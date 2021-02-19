@@ -21,9 +21,12 @@
                 SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="shared:ToDoItem">
+					<StackLayout>
+                            <views:ItemSummaryView/>
+					</StackLayout>
+	                <!--<StackLayout Padding="10" x:DataType="shared:ToDoItem">
                         <Frame>
-                            <views:ItemSummaryView Source="{Binding .}"></views:ItemSummaryView>
+                            <views:ItemSummaryView/>
                         </Frame>
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
@@ -32,7 +35,7 @@
                                 CommandParameter="{Binding .}">
                             </TapGestureRecognizer>
                         </StackLayout.GestureRecognizers>
-                    </StackLayout>
+                    </StackLayout>-->
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
