@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using ToDo.Shared;
+using Xamarin.Forms;
 
 namespace ToDo.Mobile.ViewModels
 {
@@ -13,9 +14,9 @@ namespace ToDo.Mobile.ViewModels
             set => SetProperty(ref _item, value);
         }
 
-        public async void CompleteItem()
-        {
-            await Task.CompletedTask;
-        }
+        public string Task => Item?.Task;
+
+        public Command<ToDoItem> CompleteItem { get; set; }
+
     }
 }
