@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Net.Http;
+using Xamarin.Forms;
 using ToDo.Mobile.Data;
 
 namespace ToDo.Mobile
@@ -9,7 +10,7 @@ namespace ToDo.Mobile
         public App()
         {
             InitializeComponent();
-
+            
             DependencyService.Register<DataStore>();
 
             MainPage = new AppShell();

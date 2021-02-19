@@ -1,62 +1,137 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+using System;
 using System.Linq;
-using System.Threading.Tasks;
-using ToDo.Mobile.Business.DataAbstraction;
 using ToDo.Shared;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text.Json;
+using ToDo.Mobile.Business.DataAbstraction;
 
 namespace ToDo.Mobile.Data
 {
     public class DataStore : IDataStore<ToDoItem>
     {
-        private readonly List<ToDoItem> _items;
-
-        public DataStore()
-        {
-            _items = new List<ToDoItem>
-            {
-                new ToDoItem { Id = Guid.NewGuid().ToString(), Task = "First item" },
-                new ToDoItem { Id = Guid.NewGuid().ToString(), Task = "Second item" },
-                new ToDoItem { Id = Guid.NewGuid().ToString(), Task = "Third item" },
-                new ToDoItem { Id = Guid.NewGuid().ToString(), Task = "Fourth item" },
-                new ToDoItem { Id = Guid.NewGuid().ToString(), Task = "Fifth item" },
-                new ToDoItem { Id = Guid.NewGuid().ToString(), Task = "Sixth item" }
-            };
-        }
+        private List<ToDoItem> _items;
 
         public async Task<bool> AddItemAsync(ToDoItem item)
         {
-            _items.Add(item);
+            try
+            {
+                var response = await CreateHttpClient().PostAsync("", new StringContent(JsonSerializer.Serialize(item)));
 
-            return await Task.FromResult(true);
+                response.EnsureSuccessStatusCode();
+
+                var itemId = await response.Content.ReadAsStringAsync();
+
+                item.Id = itemId;
+
+                _items.Add(item);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public async Task<bool> UpdateItemAsync(ToDoItem item)
         {
-            var oldItem = _items.FirstOrDefault(arg => arg.Id == item.Id);
+            try
+            {
+                var response = await CreateHttpClient().PutAsync($"{item.Id}", new StringContent(JsonSerializer.Serialize(item)));
 
-            _items.Remove(oldItem);
-            _items.Add(item);
+                response.EnsureSuccessStatusCode();
+                
+                var oldItem = _items.First(arg => arg.Id == item.Id);
 
-            return await Task.FromResult(true);
+                oldItem.IsCompleted = item.IsCompleted;
+                oldItem.Text = item.Text;
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public async Task<bool> DeleteItemAsync(string id)
         {
-            var oldItem = _items.FirstOrDefault(arg => arg.Id == id);
-            _items.Remove(oldItem);
+            try
+            {
+                var response = await CreateHttpClient().DeleteAsync($"{id}");
+                response.EnsureSuccessStatusCode();
 
-            return await Task.FromResult(true);
+                var oldItem = _items.FirstOrDefault(arg => arg.Id == id);
+                _items.Remove(oldItem);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public async Task<ToDoItem> GetItemAsync(string id)
         {
-            return await Task.FromResult(_items.FirstOrDefault(s => s.Id == id));
+            if (_items != null && _items.Any(x => x.Id == id))
+            {
+                return _items.First(x => x.Id == id);
+            }
+
+            var item = await GetResult<ToDoItem>(await CreateHttpClient().GetAsync($"{id}"));
+
+            _items.Add(item);
+
+            return item;
         }
 
         public async Task<IEnumerable<ToDoItem>> GetItemsAsync(bool forceRefresh = false)
         {
-            return await Task.FromResult(_items);
+            if (_items != null && _items.Any())
+            {
+                return _items;
+            }
+
+            return await GetResult<List<ToDoItem>>(await CreateHttpClient().GetAsync(""));
+        }
+
+        private HttpClient CreateHttpClient()
+        {
+            var clientHandler = new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true
+            };
+
+            var http = new HttpClient(clientHandler)
+            {
+                BaseAddress = new Uri("https://10.0.2.2:5001/todo/")
+            };
+
+            http.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            return http;
+        }
+
+        private async Task<T> GetResult<T>(HttpResponseMessage response)
+        {
+            try
+            {
+                response.EnsureSuccessStatusCode();
+
+                var resultString = await response.Content.ReadAsStringAsync();
+
+                return JsonSerializer.Deserialize<T>(resultString,
+                    new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            }
+            catch
+            {
+                return default;
+            }
         }
     }
 }

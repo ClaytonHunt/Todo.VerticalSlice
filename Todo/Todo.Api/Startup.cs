@@ -48,6 +48,8 @@ namespace Todo.Api
 
             app.UseRouting();
 
+            app.UseHostFiltering();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

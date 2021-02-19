@@ -33,7 +33,7 @@ namespace ToDo.Mobile.ViewModels
             {
                 var item = await DataStore.GetItemAsync(itemId);
                 Id = item.Id;
-                Task = item.Task;
+                Task = item.Text;
             }
             catch (Exception)
             {

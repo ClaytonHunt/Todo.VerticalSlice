@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using ToDo.Shared;
 using Xamarin.Forms;
 
@@ -7,6 +8,15 @@ namespace ToDo.Mobile.ViewModels
     public class ItemSummaryViewModel : BaseViewModel
     {
         private ToDoItem _item;
+        private bool _isCompleted;
+
+        public string Text => Item?.Text;
+        public bool IsCompleted
+        {
+            get => _isCompleted;
+            set => SetProperty(ref _isCompleted, value);
+        }
+        public Command CompleteItem { get; set; }
 
         public ToDoItem Item
         {
@@ -14,9 +24,26 @@ namespace ToDo.Mobile.ViewModels
             set => SetProperty(ref _item, value);
         }
 
-        public string Task => Item?.Task;
+        public TextDecorations LabelDecoration => 
+            IsCompleted ? TextDecorations.Strikethrough : TextDecorations.None;
 
-        public Command<ToDoItem> CompleteItem { get; set; }
+        public ItemSummaryViewModel(ToDoItem item)
+        {
+            CompleteItem = new Command(OnCompleteItem);
+            
+            IsCompleted = (_item = item)?.IsCompleted ?? false;
+        }
 
+        public async void OnCompleteItem()
+        {
+            Item.IsCompleted = IsCompleted;
+
+            await DataStore.UpdateItemAsync(Item);
+            
+            Console.WriteLine("Modified Text: {0}", Text);
+
+            OnPropertyChanged(nameof(Item));
+            OnPropertyChanged(nameof(LabelDecoration));
+        }
     }
 }

@@ -40,7 +40,7 @@ namespace ToDo.Mobile.ViewModels
             var newItem = new ToDoItem
             {
                 Id = Guid.NewGuid().ToString(),
-                Task = Task
+                Text = Task
             };
 
             await DataStore.AddItemAsync(newItem);

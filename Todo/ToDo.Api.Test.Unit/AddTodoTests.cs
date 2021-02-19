@@ -15,7 +15,7 @@ namespace ToDo.Api.Test.Unit
             var controller = new ToDoController();
 
             // Act
-            var result = await controller.AddToDo(todo);
+            var result = await controller.CreateToDo(todo);
 
             // Assert
             Assert.NotNull(result);

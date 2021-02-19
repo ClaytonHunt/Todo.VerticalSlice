@@ -5,7 +5,7 @@
              Title="{Binding Title}">
 
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Task:" FontSize="Medium" />
+        <Label Text="Text:" FontSize="Medium" />
         <Label Text="{Binding Task}" FontSize="Small"/>
     </StackLayout>
     

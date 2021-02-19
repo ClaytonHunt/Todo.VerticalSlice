@@ -27,8 +27,6 @@ namespace ToDo.Mobile.ViewModels
             ItemTapped = new Command<ToDoItem>(OnItemSelected);
 
             AddItemCommand = new Command(OnAddItem);
-
-            CompleteItem = new Command<ToDoItem>(OnCompleteItem);
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -41,7 +39,13 @@ namespace ToDo.Mobile.ViewModels
                 var items = await DataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
-                    Items.Add(new ItemSummaryViewModel{ Item = item, CompleteItem = CompleteItem});
+                    Items.Add(new ItemSummaryViewModel(
+                        new ToDoItem
+                        {
+                            Id = item.Id, 
+                            IsCompleted = item.IsCompleted, 
+                            Text = item.Text
+                        }));
                 }
             }
             catch (Exception ex)
@@ -73,12 +77,6 @@ namespace ToDo.Mobile.ViewModels
         private async void OnAddItem(object obj)
         {
             await Shell.Current.GoToAsync(nameof(NewItemPage));
-        }
-
-        private async void OnCompleteItem(ToDoItem todo)
-        {
-            // todo.IsCompleted = true;
-            await Task.Run(() => { });
         }
 
         async void OnItemSelected(ToDoItem item)
