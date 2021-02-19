@@ -1,20 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:behaviors="clr-namespace:ToDo.Mobile.Behaviors;assembly=ToDo.Mobile"
+             xmlns:viewModels="clr-namespace:ToDo.Mobile.ViewModels;assembly=ToDo.Mobile"
              x:Class="ToDo.Mobile.Views.ItemSummaryView">
-  <ContentView.Content>
+    <ContentView.BindingContext>
+        <viewModels:ItemSummaryViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Content>
       <StackLayout Orientation="Horizontal">
-          <CheckBox Color="{StaticResource Primary}" IsChecked="{Binding IsCompleted, Mode=OneWay}">
-              <CheckBox.Behaviors>
-                  <behaviors:EventToCommandBehavior 
-                      EventName="CheckedChanged"
-                      Command="{Binding CompleteItem}"
-                      CommandParameter="{Binding Item}">
-                  </behaviors:EventToCommandBehavior>
-              </CheckBox.Behaviors>
+          <CheckBox Color="{StaticResource Primary}" IsChecked="{Binding Item.IsCompleted}">
           </CheckBox>
-          <Label Text="{Binding Task}" 
+          <Label Text="{Binding Item.Task}"
                  LineBreakMode="NoWrap" 
                  VerticalTextAlignment="Center"
                  Style="{DynamicResource ListItemTextStyle}" 

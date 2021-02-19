@@ -8,17 +8,13 @@ namespace ToDo.Mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemSummaryView : ContentView
     {
-        private ItemSummaryViewModel _viewModel;
-
-        public ToDoItem Source { get; set; }
-
+        private readonly ItemSummaryViewModel _viewModel;
+        
         public ItemSummaryView()
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = new ItemSummaryViewModel();
-
-            _viewModel.Item = Source;
-        }
+            BindingContext = BindingContext;
+        }        
     }
 }
