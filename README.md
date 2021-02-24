@@ -61,7 +61,7 @@ Confirmation: any request that the user accpets the potential action before the
 	Scenarios:
 	
 	> No Local Tasks
-	> --------------
+	> ==============
 	> Given List view  
 	> Given no local tasks  
 	> Then retrieve all tasks from server
