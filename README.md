@@ -52,14 +52,12 @@ Confirmation: any request that the user accpets the potential action before the
 
 	Scenarios:
 	
-	> No Local Tasks
-	> ==============
+	> **No Local Tasks**  
 	> Given List view  
 	> Given no local tasks  
 	> Then retrieve all tasks from server
 
-	> Local Tasks
-	> -----------
+	> **Local Tasks**  
 	> Given List view  
 	> Given local tasks  
 	> Then retrive new and updated tasks from server
@@ -74,8 +72,7 @@ Confirmation: any request that the user accpets the potential action before the
 
 	Scenarios:
 
-	> Todo Zoom/Enhance
-	> -----------------
+	> **Todo Zoom/Enhance**  
 	> Given a List view  
 	> When Detail action is taken on Todo  
 	> Then show to Detail View for Todo
@@ -90,21 +87,18 @@ Confirmation: any request that the user accpets the potential action before the
 
 	Scenarios:
 
-	> Disruptive Todo Creation 
-	> (Most helpful when adding to a different list from the one you are viewing)
-	> ------------------------
+	> **Disruptive Todo Creation**
+	> **(Most helpful when adding to a different list from the one you are viewing)**  
 	> When Wallace is selecting to Add a Todo  
 	> Then view is changed to Todo creation view
 	
-	> NonDisruptive Todo Creation
-	> (Most helpful when adding to the currently viewed list)
-	> ---------------------------
+	> **NonDisruptive Todo Creation**
+	> **(Most helpful when adding to the currently viewed list)**  
 	> When Gina is selecting to Add a Todo  
 	> Then Todo creation view is appended to current Todo List
 
-	> DPA (Digital Personal Assistant) Todo Creation
-	> (Most helpful when the Todo application is not the active application)
-	> ----------------------------------------
+	> **DPA (Digital Personal Assistant) Todo Creation**
+	> **(Most helpful when the Todo application is not the active application)**  
 	> Given Frank's DPA is activated  
 	> When speaking to Add a Todo  
 	> Then voice input is used to create Todo
@@ -119,20 +113,17 @@ Confirmation: any request that the user accpets the potential action before the
 
 	Scenarios:
 
-	> Disruptive Todo Completion
-	> --------------------------
+	> **Disruptive Todo Completion**  
 	> Given Todo Details view  
 	> When Marking Todo Complete  
 	> Then Todo is updated to Complete status
 
-	> NonDisruptive Todo Completion
-	> -----------------------------
+	> **NonDisruptive Todo Completion**  
 	> Given Todo List view  
 	> When Marking Todo Complete  
 	> Then Todo is updated to Complete status
 
-	> DPA Todo Completion
-	> -------------------
+	> **DPA Todo Completion**  
 	> Given DPA is activated  
 	> When speaking to Complete a Todo  
 	> Then voice input is used to Complete Todo
@@ -147,24 +138,21 @@ Confirmation: any request that the user accpets the potential action before the
 
 	Scenarios:
 
-	> Disruptive Todo Removal
-	> --------------------------
+	> **Disruptive Todo Removal**  
 	> Given Todo Details view  
 	> When selecting to Remove Todo  
 	> Then Confirmation is requested  
 	> When Confirmation is accepted  
 	> Then Todo is Removed
 
-	> NonDisruptive Todo Removal
-	> -----------------------------
+	> **NonDisruptive Todo Removal**  
 	> Given Todo List view  
 	> When selecting to Remove Todo  
 	> Then Confirmation is requested  
 	> When Confirmation is accepted  
 	> Then Todo is Removed
 
-	> DPA Todo Removal
-	> -------------------
+	> **DPA Todo Removal**  
 	> Given DPA is activated  
 	> When speaking to Remove a Todo  
 	> Then voice input is used to Confirm Todo Removal  
