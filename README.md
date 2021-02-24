@@ -28,26 +28,18 @@ A simple Todo application using Vertical Slice Architecture.
 	> list every year.
 
 ### Dictionary / Domain Language
-User: A generic nonpersona that applies to all personas
-
-Todo: A reminder of a task that needs to be completed.
-
-Task: The actual work needed to complete a Todo.
-
-Achievement: any kind of reward that comes with the completion of one or many todos.
-
-Journal: A listing of previously defined and completed todos.
-
+User: A generic nonpersona that applies to all personas.  
+Todo: A reminder of a task that needs to be completed.  
+Task: The actual work needed to complete a Todo.  
+Achievement: any kind of reward that comes with the completion of one or many todos.  
+Journal: A listing of previously defined and completed todos.  
 Flag: A named piece of meta data that can be applied to a Todo for filtering purposes.
-	  Each Todo may have multiple Flags.
-
-List: A group of Todos. Each user may have multiple Lists
-
-DPA: Digital Personal Assistant. This is the assistant that is included with your device. 
-	 ex. Siri, 'OK' Google, Alexa, etc.
-
-Confirmation: any request that the user accpets the potential action before the 
-			  system runs the action.
+	  Each Todo may have multiple Flags.  
+List: A group of Todos. Each user may have multiple Lists  
+DPA: Digital Personal Assistant. This is the assistant that is included with your device.
+	 ex. Siri, 'OK' Google, Alexa, etc.  
+Confirmation: any request that the user accpets the potential action before the
+			  system runs the action.  
 
 ### Features and Scenarios
 - [ ] List Todos  
