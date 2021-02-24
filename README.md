@@ -4,179 +4,191 @@ A simple Todo application using Vertical Slice Architecture.
 ## Requirements
 ### Personas
 - Larry Lister
-	Larry likes to make lists, lists for everything. A list to track stuff at work. 
-	A list to track jobs around the house. A list for groceries. A list for any and every thing.
+	> Larry likes to make lists, lists for everything. A list to track stuff at work. 
+	> A list to track jobs around the house. A list for groceries. A list for any and every thing.
+
 - Gina GTD (Getting Things Done)
-	Gina is all about Getting Things Done. She wants to keep her lists small by completing items
-	and removing any clutter. Gina only wants a single list for everything she plans to do, but
-	she likes to organize by calendar date. Prescheduling list items that absolutely must be done and
-	reviewing what has previously happened.
+	> Gina is all about Getting Things Done. She wants to keep her lists small by completing items
+	> and removing any clutter. Gina only wants a single list for everything she plans to do, but
+	> she likes to organize by calendar date. Prescheduling list items that absolutely must be done and
+	> reviewing what has previously happened.
+
 - Forgetful Frank
-	Frank is not very good at using a todo list. He wants to be more organized but struggles to
-	remember that the list exists. Franks want a system that is so easy to put stuff in that there
-	is no reason not to. He also needs the occasional reminder to check things off the list.
+	> Frank is not very good at using a todo list. He wants to be more organized but struggles to
+	> remember that the list exists. Franks want a system that is so easy to put stuff in that there
+	> is no reason not to. He also needs the occasional reminder to check things off the list.
+
 - Allie Acheiver
-	Allie is an over achiever. Everything she does is motivated by the rewards that come with
-	an achievment. A todo list is a perfect way to let her know she is meeting her goals.
+	> Allie is an over achiever. Everything she does is motivated by the rewards that come with
+	> an achievment. A todo list is a perfect way to let her know she is meeting her goals.
+
 - Worker Wallace
-	Wallace is a working in the corporate environment. Every year at review time, his boss asks
-	him to provide a list of acheivements from the past year. Wallace has trouble creating this
-	list every year.
+	> Wallace is a working in the corporate environment. Every year at review time, his boss asks
+	> him to provide a list of acheivements from the past year. Wallace has trouble creating this
+	> list every year.
 
 ### Dictionary / Domain Language
 User: A generic nonpersona that applies to all personas
+
 Todo: A reminder of a task that needs to be completed.
+
 Task: The actual work needed to complete a Todo.
+
 Achievement: any kind of reward that comes with the completion of one or many todos.
+
 Journal: A listing of previously defined and completed todos.
+
 Flag: A named piece of meta data that can be applied to a Todo for filtering purposes.
 	  Each Todo may have multiple Flags.
+
 List: A group of Todos. Each user may have multiple Lists
+
 DPA: Digital Personal Assistant. This is the assistant that is included with your device. 
 	 ex. Siri, 'OK' Google, Alexa, etc.
+
 Confirmation: any request that the user accpets the potential action before the 
 			  system runs the action.
 
 ### Features and Scenarios
-- [ ] List Todos
-	Applies to: Larry, Gina, Frank, Allie, Wallace
+- [ ] List Todos  
+	Applies to: Larry, Gina, Frank, Allie, Wallace  
 	Concepts: Todo, Task, List
-
-	Larry
-	Wants to see all his Todos
-	So that he can decide what to work on next
-
-	Scenarios:
-
-	No Local Tasks
-	--------------
-	Given List view
-	Given no local tasks
-	Then retrieve all tasks from server
-
-	Local Tasks
-	-----------
-	Given List view
-	Given local tasks
-	Then retrive new and updated tasks from server
-
-- [ ] View Todo Details
-	Applies to: Larry, Gina, Frank, Allie, Wallace
-	Concepts: Todo, Task
-
-	Frank
-	Wants to view the details of a Todo
-	So that he can remember what the Todo was for
+	 
+	> Larry  
+	> Wants to see all his Todos  
+	> So that he can decide what to work on next
 
 	Scenarios:
-
-	Todo Zoom/Enhance
-	-----------------
-	Given a List view
-	When Detail action is taken on Todo
-	Then show to Detail View for Todo
-
-- [ ] Add a Todo
-	Applies to: Larry, Gina, Frank, Allie, Wallace
-	Concepts: Todo, Task
-
-	Frank 
-	Wants to Create a Todo
-	So that he can keep track of all his Tasks
-
-	Scenarios:
-
-	Disruptive Todo Creation 
-	(Most helpful when adding to a different list from the one you are viewing)
-	------------------------
-	When Wallace is selecting to Add a Todo
-	Then view is changed to Todo creation view
 	
-	NonDisruptive Todo Creation
-	(Most helpful when adding to the currently viewed list)
-	---------------------------
-	When Gina is selecting to Add a Todo
-	Then Todo creation view is appended to current Todo List
+	> No Local Tasks
+	> --------------
+	> Given List view  
+	> Given no local tasks  
+	> Then retrieve all tasks from server
 
-	DPA (Digital Personal Assistant) Todo Creation
-	(Most helpful when the Todo application is not the active application)
-	----------------------------------------
-	Given Frank's DPA is activated
-	When speaking to Add a Todo
-	Then voice input is used to create Todo
+	> Local Tasks
+	> -----------
+	> Given List view  
+	> Given local tasks  
+	> Then retrive new and updated tasks from server
 
-- [ ] Complete a Todo
-	Applies to: Larry, Gina, Frank, Allie, Wallace
+- [ ] View Todo Details  
+	Applies to: Larry, Gina, Frank, Allie, Wallace  
+	Concepts: Todo, Task
+
+	> Frank  
+	> Wants to view the details of a Todo  
+	> So that he can remember what the Todo was for
+
+	Scenarios:
+
+	> Todo Zoom/Enhance
+	> -----------------
+	> Given a List view  
+	> When Detail action is taken on Todo  
+	> Then show to Detail View for Todo
+
+- [ ] Add a Todo  
+	Applies to: Larry, Gina, Frank, Allie, Wallace  
+	Concepts: Todo, Task
+
+	> Frank  
+	> Wants to Create a Todo  
+	> So that he can keep track of all his Tasks
+
+	Scenarios:
+
+	> Disruptive Todo Creation 
+	> (Most helpful when adding to a different list from the one you are viewing)
+	> ------------------------
+	> When Wallace is selecting to Add a Todo  
+	> Then view is changed to Todo creation view
+	
+	> NonDisruptive Todo Creation
+	> (Most helpful when adding to the currently viewed list)
+	> ---------------------------
+	> When Gina is selecting to Add a Todo  
+	> Then Todo creation view is appended to current Todo List
+
+	> DPA (Digital Personal Assistant) Todo Creation
+	> (Most helpful when the Todo application is not the active application)
+	> ----------------------------------------
+	> Given Frank's DPA is activated  
+	> When speaking to Add a Todo  
+	> Then voice input is used to create Todo
+
+- [ ] Complete a Todo  
+	Applies to: Larry, Gina, Frank, Allie, Wallace  
 	Concepts: Todo, Task, Achievement
 
-	Allie
-	Wants to Complete a Todo
-	So that she can reach her next Acheivment goal
+	> Allie  
+	> Wants to Complete a Todo  
+	> So that she can reach her next Acheivment goal
 
 	Scenarios:
 
-	Disruptive Todo Completion
-	--------------------------
-	Given Todo Details view
-	When Marking Todo Complete
-	Then Todo is updated to Complete status
+	> Disruptive Todo Completion
+	> --------------------------
+	> Given Todo Details view  
+	> When Marking Todo Complete  
+	> Then Todo is updated to Complete status
 
-	NonDisruptive Todo Completion
-	-----------------------------
-	Given Todo List view
-	When Marking Todo Complete
-	Then Todo is updated to Complete status
+	> NonDisruptive Todo Completion
+	> -----------------------------
+	> Given Todo List view  
+	> When Marking Todo Complete  
+	> Then Todo is updated to Complete status
 
-	DPA Todo Completion
-	-------------------
-	Given DPA is activated
-	When speaking to Complete a Todo
-	Then voice input is used to Complete Todo
+	> DPA Todo Completion
+	> -------------------
+	> Given DPA is activated  
+	> When speaking to Complete a Todo  
+	> Then voice input is used to Complete Todo
 
-- [ ] Remove a Todo
-	Applies to: Larry, Gina, Frank, Allie, Wallace
+- [ ] Remove a Todo  
+	Applies to: Larry, Gina, Frank, Allie, Wallace  
 	Concepts: Todo
 
-	Gina
-	Wants to Remove no longer relavent Todos
-	So that she can keep her List short and uncluttered
+	> Gina  
+	> Wants to Remove no longer relavent Todos  
+	> So that she can keep her List short and uncluttered
 
 	Scenarios:
 
-	Disruptive Todo Removal
-	--------------------------
-	Given Todo Details view
-	When selecting to Remove Todo
-	Then Confirmation is requested
-	When Confirmation is accepted
-	Then Todo is Removed
+	> Disruptive Todo Removal
+	> --------------------------
+	> Given Todo Details view  
+	> When selecting to Remove Todo  
+	> Then Confirmation is requested  
+	> When Confirmation is accepted  
+	> Then Todo is Removed
 
-	NonDisruptive Todo Removal
-	-----------------------------
-	Given Todo List view
-	When selecting to Remove Todo
-	Then Confirmation is requested
-	When Confirmation is accepted
-	Then Todo is Removed
+	> NonDisruptive Todo Removal
+	> -----------------------------
+	> Given Todo List view  
+	> When selecting to Remove Todo  
+	> Then Confirmation is requested  
+	> When Confirmation is accepted  
+	> Then Todo is Removed
 
-	DPA Todo Removal
-	-------------------
-	Given DPA is activated
-	When speaking to Remove a Todo
-	Then voice input is used to Confirm Todo Removal
-	Then Todo is Removed
+	> DPA Todo Removal
+	> -------------------
+	> Given DPA is activated  
+	> When speaking to Remove a Todo  
+	> Then voice input is used to Confirm Todo Removal  
+	> Then Todo is Removed
 
-- [ ] Multiple Lists
-- [ ] Journal (Stretch Goal)
-- [ ] Hightlight (Stretch Goal)
-	Applies to: Wallace
+- [ ] Multiple Lists  
+- [ ] Journal (Stretch Goal)  
+- [ ] Hightlight (Stretch Goal)  
+	Applies to: Wallace  
 	Concepts: Todo, Task, Flag
 
-	Wallace
-	Wants a way to Flag a Todo
-	So that he can quickly find high impact things he as done for his year end review
+	> Wallace  
+	> Wants a way to Flag a Todo  
+	> So that he can quickly find high impact things he as done for his year end review
 
-- [ ] Authentication
+- [ ] Authentication  
 	Login and Password will be used to Authenticate a User and keep each Users Todos separate.
 
 ## Application Structure
