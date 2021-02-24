@@ -2,7 +2,7 @@
 
 namespace ToDo.Shared
 {
-    public class ToDoItem
+    public class TodoItem
     {
         [Key]
         public string Id { get; set; }

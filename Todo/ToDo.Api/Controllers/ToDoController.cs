@@ -9,25 +9,20 @@ namespace Todo.Api.Controllers
 {
     [Route("todo")]
     [ApiController]
-    public class ToDoController : Controller
+    public class TodoController : Controller
     {
-        private readonly List<ToDoItem> _items;
-
-        public ToDoController()
+        private static readonly List<TodoItem> _items = new()
         {
-            _items = new List<ToDoItem>
-            {
-                new() { Id = Guid.NewGuid().ToString(), Text = "First item" },
-                new() { Id = Guid.NewGuid().ToString(), Text = "Second item"},
-                new() { Id = Guid.NewGuid().ToString(), Text = "Third item" },
-                new() { Id = Guid.NewGuid().ToString(), Text = "Fourth item" },
-                new() { Id = Guid.NewGuid().ToString(), Text = "Fifth item" },
-                new() { Id = Guid.NewGuid().ToString(), Text = "Sixth item" }
-            };
-        }
+            new() {Id = Guid.NewGuid().ToString(), Text = "First item"},
+            new() {Id = Guid.NewGuid().ToString(), Text = "Second item"},
+            new() {Id = Guid.NewGuid().ToString(), Text = "Third item"},
+            new() {Id = Guid.NewGuid().ToString(), Text = "Fourth item"},
+            new() {Id = Guid.NewGuid().ToString(), Text = "Fifth item"},
+            new() {Id = Guid.NewGuid().ToString(), Text = "Sixth item"}
+        };
 
         [HttpPost]
-        public Task<IActionResult> CreateToDo([FromBody] ToDoItem todo)
+        public Task<IActionResult> CreateToDo([FromBody] TodoItem todo)
         {
             try
             {
@@ -69,7 +64,7 @@ namespace Todo.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public Task<IActionResult> UpdateToDo([FromRoute] string id, [FromBody] ToDoItem todo)
+        public Task<IActionResult> UpdateToDo([FromRoute] string id, [FromBody] TodoItem todo)
         {
             try
             {

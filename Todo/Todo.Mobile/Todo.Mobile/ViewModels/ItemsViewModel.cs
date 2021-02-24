@@ -10,13 +10,13 @@ namespace ToDo.Mobile.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        private ToDoItem _selectedItem;
+        private TodoItem _selectedItem;
 
         public ObservableCollection<ItemSummaryViewModel> Items { get; }
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
-        public Command<ToDoItem> ItemTapped { get; }
-        public Command<ToDoItem> CompleteItem { get;set; }
+        public Command<TodoItem> ItemTapped { get; }
+        public Command<TodoItem> CompleteItem { get;set; }
 
         public ItemsViewModel()
         {
@@ -24,7 +24,7 @@ namespace ToDo.Mobile.ViewModels
             Items = new ObservableCollection<ItemSummaryViewModel>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            ItemTapped = new Command<ToDoItem>(OnItemSelected);
+            ItemTapped = new Command<TodoItem>(OnItemSelected);
 
             AddItemCommand = new Command(OnAddItem);
         }
@@ -40,7 +40,7 @@ namespace ToDo.Mobile.ViewModels
                 foreach (var item in items)
                 {
                     Items.Add(new ItemSummaryViewModel(
-                        new ToDoItem
+                        new TodoItem
                         {
                             Id = item.Id, 
                             IsCompleted = item.IsCompleted, 
@@ -64,7 +64,7 @@ namespace ToDo.Mobile.ViewModels
             SelectedItem = null;
         }
 
-        public ToDoItem SelectedItem
+        public TodoItem SelectedItem
         {
             get => _selectedItem;
             set
@@ -79,7 +79,7 @@ namespace ToDo.Mobile.ViewModels
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
-        async void OnItemSelected(ToDoItem item)
+        async void OnItemSelected(TodoItem item)
         {
             if (item == null)
                 return;

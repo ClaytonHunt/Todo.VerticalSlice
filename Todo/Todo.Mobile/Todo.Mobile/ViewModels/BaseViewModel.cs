@@ -10,7 +10,7 @@ namespace ToDo.Mobile.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<ToDoItem> DataStore => DependencyService.Get<IDataStore<ToDoItem>>();
+        public IDataStore<TodoItem> DataStore => DependencyService.Get<IDataStore<TodoItem>>();
 
         private bool _isBusy;
         public bool IsBusy

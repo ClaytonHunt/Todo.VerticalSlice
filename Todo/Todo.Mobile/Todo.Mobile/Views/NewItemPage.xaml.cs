@@ -6,7 +6,7 @@ namespace ToDo.Mobile.Views
 {
     public partial class NewItemPage : ContentPage
     {
-        public ToDoItem Item { get; set; }
+        public TodoItem Item { get; set; }
 
         public NewItemPage()
         {

@@ -37,7 +37,7 @@ namespace ToDo.Mobile.ViewModels
 
         private async void OnSave()
         {
-            var newItem = new ToDoItem
+            var newItem = new TodoItem
             {
                 Id = Guid.NewGuid().ToString(),
                 Text = Task

@@ -6,20 +6,26 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Text.Json;
 using ToDo.Mobile.Business.DataAbstraction;
 
 namespace ToDo.Mobile.Data
 {
-    public class DataStore : IDataStore<ToDoItem>
+    public class DataStore : IDataStore<TodoItem>
     {
-        private List<ToDoItem> _items;
+        private readonly List<TodoItem> _items;
 
-        public async Task<bool> AddItemAsync(ToDoItem item)
+        public DataStore()
+        {
+            _items = new List<TodoItem>();
+        }
+
+        public async Task<bool> AddItemAsync(TodoItem item)
         {
             try
             {
-                var response = await CreateHttpClient().PostAsync("", new StringContent(JsonSerializer.Serialize(item)));
+                var response = await CreateHttpClient().PostAsync("", GetContent(item));
 
                 response.EnsureSuccessStatusCode();
 
@@ -37,11 +43,11 @@ namespace ToDo.Mobile.Data
             }
         }
 
-        public async Task<bool> UpdateItemAsync(ToDoItem item)
+        public async Task<bool> UpdateItemAsync(TodoItem item)
         {
             try
             {
-                var response = await CreateHttpClient().PutAsync($"{item.Id}", new StringContent(JsonSerializer.Serialize(item)));
+                var response = await CreateHttpClient().PutAsync($"{item.Id}", GetContent(item));
 
                 response.EnsureSuccessStatusCode();
                 
@@ -63,6 +69,7 @@ namespace ToDo.Mobile.Data
             try
             {
                 var response = await CreateHttpClient().DeleteAsync($"{id}");
+
                 response.EnsureSuccessStatusCode();
 
                 var oldItem = _items.FirstOrDefault(arg => arg.Id == id);
@@ -76,28 +83,30 @@ namespace ToDo.Mobile.Data
             }
         }
 
-        public async Task<ToDoItem> GetItemAsync(string id)
+        public async Task<TodoItem> GetItemAsync(string id)
         {
-            if (_items != null && _items.Any(x => x.Id == id))
+            var item = _items?.FirstOrDefault(x => x.Id == id);
+
+            if (item != null)
             {
-                return _items.First(x => x.Id == id);
+                return item;
             }
 
-            var item = await GetResult<ToDoItem>(await CreateHttpClient().GetAsync($"{id}"));
+            item = await GetResult<TodoItem>(await CreateHttpClient().GetAsync($"{id}"));
 
             _items.Add(item);
 
             return item;
         }
 
-        public async Task<IEnumerable<ToDoItem>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<TodoItem>> GetItemsAsync(bool forceRefresh = false)
         {
             if (_items != null && _items.Any())
             {
                 return _items;
             }
 
-            return await GetResult<List<ToDoItem>>(await CreateHttpClient().GetAsync(""));
+            return await GetResult<List<TodoItem>>(await CreateHttpClient().GetAsync(""));
         }
 
         private HttpClient CreateHttpClient()
@@ -117,7 +126,12 @@ namespace ToDo.Mobile.Data
             return http;
         }
 
-        private async Task<T> GetResult<T>(HttpResponseMessage response)
+        private HttpContent GetContent<T>(T item)
+        {
+            return new StringContent(JsonSerializer.Serialize(item), Encoding.UTF8, "application/json");
+        }
+
+        private async Task<T> GetResult<T>(HttpResponseMessage response) where T: new ()
         {
             try
             {
@@ -130,7 +144,7 @@ namespace ToDo.Mobile.Data
             }
             catch
             {
-                return default;
+                return new T();
             }
         }
     }

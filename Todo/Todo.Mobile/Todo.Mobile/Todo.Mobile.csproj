@@ -11,9 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\ToDo.Mobile.Business\ToDo.Mobile.Business.csproj" />
-    <ProjectReference Include="..\..\ToDo.Mobile.Data\ToDo.Mobile.Data.csproj" />
-    <ProjectReference Include="..\..\ToDo.Shared\ToDo.Shared.csproj" />
+    <ProjectReference Include="..\..\ToDo.Mobile.Business\Todo.Mobile.Business.csproj" />
+    <ProjectReference Include="..\..\ToDo.Mobile.Data\Todo.Mobile.Data.csproj" />
+    <ProjectReference Include="..\..\ToDo.Shared\Todo.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

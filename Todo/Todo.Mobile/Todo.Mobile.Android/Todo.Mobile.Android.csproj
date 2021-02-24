@@ -89,9 +89,9 @@
     <AndroidResource Include="Resources\drawable\icon_feed.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ToDo.Mobile\ToDo.Mobile.csproj">
-      <Project>{A9246224-637E-4A04-B0C4-70F99F1EB627}</Project>
-      <Name>ToDo.Mobile</Name>
+    <ProjectReference Include="..\ToDo.Mobile\Todo.Mobile.csproj">
+      <Project>{85405452-1A42-4C91-A2A1-0C18576B8E6C}</Project>
+      <Name>Todo.Mobile</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

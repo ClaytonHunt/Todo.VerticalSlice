@@ -7,7 +7,7 @@ namespace ToDo.Mobile.ViewModels
 {
     public class ItemSummaryViewModel : BaseViewModel
     {
-        private ToDoItem _item;
+        private TodoItem _item;
         private bool _isCompleted;
 
         public string Text => Item?.Text;
@@ -18,7 +18,7 @@ namespace ToDo.Mobile.ViewModels
         }
         public Command CompleteItem { get; set; }
 
-        public ToDoItem Item
+        public TodoItem Item
         {
             get => _item;
             set => SetProperty(ref _item, value);
@@ -27,7 +27,7 @@ namespace ToDo.Mobile.ViewModels
         public TextDecorations LabelDecoration => 
             IsCompleted ? TextDecorations.Strikethrough : TextDecorations.None;
 
-        public ItemSummaryViewModel(ToDoItem item)
+        public ItemSummaryViewModel(TodoItem item)
         {
             CompleteItem = new Command(OnCompleteItem);
             

@@ -16,21 +16,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Api", "Todo.Api\Todo.A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{CD997AD7-C020-4029-BF34-A4D14FCA54F5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDo.Api.Test.Unit", "ToDo.Api.Test.Unit\ToDo.Api.Test.Unit.csproj", "{CBC63E92-F74C-487B-BAFD-4EB05876E30A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Api.Test.Unit", "ToDo.Api.Test.Unit\Todo.Api.Test.Unit.csproj", "{CBC63E92-F74C-487B-BAFD-4EB05876E30A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{1C73D2E4-A4C7-416B-A6FC-1C960D094B75}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDo.Shared", "ToDo.Shared\ToDo.Shared.csproj", "{B90E2173-6A86-40E6-9F48-CBF638D5B59F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Shared", "ToDo.Shared\Todo.Shared.csproj", "{B90E2173-6A86-40E6-9F48-CBF638D5B59F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Mobile.Android", "ToDo.Mobile\ToDo.Mobile.Android\ToDo.Mobile.Android.csproj", "{10198A8E-36E3-495C-BD84-D339BBCE2A3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Mobile.Android", "ToDo.Mobile\ToDo.Mobile.Android\Todo.Mobile.Android.csproj", "{10198A8E-36E3-495C-BD84-D339BBCE2A3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Mobile.iOS", "ToDo.Mobile\ToDo.Mobile.iOS\ToDo.Mobile.iOS.csproj", "{7CCD8DFD-EEAC-47EE-9F39-D0E434BC69F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Mobile.iOS", "ToDo.Mobile\ToDo.Mobile.iOS\Todo.Mobile.iOS.csproj", "{7CCD8DFD-EEAC-47EE-9F39-D0E434BC69F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Mobile", "ToDo.Mobile\ToDo.Mobile\ToDo.Mobile.csproj", "{85405452-1A42-4C91-A2A1-0C18576B8E6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Mobile", "ToDo.Mobile\ToDo.Mobile\Todo.Mobile.csproj", "{85405452-1A42-4C91-A2A1-0C18576B8E6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Mobile.Business", "ToDo.Mobile.Business\ToDo.Mobile.Business.csproj", "{81DB4D9D-A1E5-4652-9CF6-93F9EA2742F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Mobile.Business", "ToDo.Mobile.Business\Todo.Mobile.Business.csproj", "{81DB4D9D-A1E5-4652-9CF6-93F9EA2742F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Mobile.Data", "ToDo.Mobile.Data\ToDo.Mobile.Data.csproj", "{7441502A-EAD7-4EB7-BE27-BD39526FD91B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Mobile.Data", "ToDo.Mobile.Data\Todo.Mobile.Data.csproj", "{7441502A-EAD7-4EB7-BE27-BD39526FD91B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
