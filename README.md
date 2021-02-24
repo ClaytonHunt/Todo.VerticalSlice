@@ -1,33 +1,94 @@
-# Todo.Hexagonal
-A simple Todo application using Hexagonal (Ports and Adapters) Architecture.
+# Todo.VerticalSlice
+A simple Todo application using Vertical Slice Architecture.
 
 ## Requirements
-Todo: Text describing a task that needs to be completed.
+### Personas
+- Larry Lister
+	Larry likes to make lists, lists for everything. A list to track stuff at work. 
+	A list to track jobs around the house. A list for groceries. A list for any and every thing.
+- Gina GTD (Getting Things Done)
+	Gina is all about Getting Things Done. She wants to keep her lists small by completing items
+	and removing any clutter. Gina only wants a single list for everything she plans to do, but
+	she likes to organize by calendar date. Prescheduling list items that absolutely must be done and
+	reviewing what has previously happened.
+- Forgetful Frank
+	Frank is not very good at using a todo list. He wants to be more organized but struggles to
+	remember that the list exists. Franks want a system that is so easy to put stuff in that there
+	is no reason not to. He also needs the occasional reminder to check things off the list.
+- Allie Acheiver
+	Allie is an over achiever. Everything she does is motivated by the rewards that come with
+	an achievment. A todo list is a perfect way to let her know she is meeting her goals.
+- Worker Wallace
+	Wallace is a working in the corporate environment. Every year at review time, his boss asks
+	him to provide a list of acheivements from the past year. Wallace has trouble creating this
+	list every year.
 
+### Dictionary / Domain Language
+User: A generic nonpersona that applies to all personas
+Todo: A reminder of a task that needs to be completed.
+Task: The actual work needed to complete a Todo.
+Achievement: any kind of reward that comes with the completion of one or many todos.
+Journal: A listing of previously defined and completed todos.
+Flag: A named piece of meta data that can be applied to a Todo for filtering purposes.
+	  Each Todo may have multiple Flags.
+List: A group of Todos. Each user may have multiple Lists
+
+### Features and Scenarios
 - [ ] Add a Todo
-	As a user
-	I want to create Todos
-	So that I can keep track of tasks that I want to accomplish	
-- [ ] Remove a Todo
-	As a user
-	I want to remove a Todo
-	So that I can get rid of tasks that are no longer relevant
+	Applies to: Larry, Gina, Frank, Allie, Wallace
+	Concepts: Todo, Task
+
+	Frank 
+	Wants to Create a Todo
+	So that he can keep track of all his Tasks
+
+	Scenarios:
+	Disruptive Todo Creation 
+	(Most helpful when adding to a different list from the one you are viewing)
+	------------------------
+	When Wallace is selecting to Add a Todo
+	Then view is changed to Todo creation view
+	
+	NonDisruptive Todo Creation
+	(Most helpful when adding to the currently viewed list)
+	---------------------------
+	When Gina is selecting to Add a Todo
+	Then Todo creation view is appended to current Todo List
+
+	Digital Personal Assistant Todo Creation
+	(Most helpful when the Todo application is not the active application)
+	----------------------------------------
+	Given Frank's Digital Personal Assistant is activated
+	When speaking to Add a Todo
+	Then voice input is used to create Todo
+
 - [ ] Complete a Todo
-	As a user
-	I want the ability to complete a Todo
-	So that I can show that it is finished
-- [ ] Authentication (Stretch Goal)
-	As a user
-	I want to have ownership of my own Todos
-	So that my tasks are different from everyone elses
+	Applies to: Larry, Gina, Frank, Allie, Wallace
+	Concepts: Todo, Task, Achievement
+
+	Allie
+	Wants to Complete a Todo
+	So that she can reach her next Acheivment goal
+
+- [ ] Remove a Todo
+	Applies to: Larry, Gina, Frank, Allie, Wallace
+	Concepts: Todo
+
+	Gina
+	Wants to Remove no longer relavent Todos
+	So that she can keep her List short and uncluttered
+
 - [ ] Journal (Stretch Goal)
-	As a user
-	I want to see previously completed Todos
-	So that I can see my accomplishments over time
 - [ ] Hightlight (Stretch Goal)
-	As a user
-	I want to be able to mark a Todo as important
-	So that when I am looking at my accomplishments I can see which ones are most significant
+	Applies to: Wallace
+	Concepts: Todo, Task, Flag
+
+	Wallace
+	Wants a way to Flag a Todo
+	So that he can quickly find high impact things he as done for his year end review
+
+- [ ] Authentication
+	Login and Password will be used to Authenticate a User and keep each Users Todos separate.
 
 ## Application Structure
 The application is broken into 2 intrinsic parts, Client side and Server side. The Client is a
