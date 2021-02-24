@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ToDo.Mobile.Models;
-using ToDo.Mobile.ViewModels;
-using ToDo.Mobile.Views;
+﻿using ToDo.Mobile.ViewModels;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace ToDo.Mobile.Views
 {
     public partial class ItemsPage : ContentPage
     {
-        ItemsViewModel _viewModel;
+        private readonly ItemsViewModel _viewModel;
 
         public ItemsPage()
         {

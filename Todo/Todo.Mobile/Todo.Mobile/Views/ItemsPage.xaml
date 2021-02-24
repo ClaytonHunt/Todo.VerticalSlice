@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToDo.Mobile.Views.ItemsPage"
              Title="{Binding Title}"
-             xmlns:local="clr-namespace:ToDo.Mobile.ViewModels"  
-             xmlns:model="clr-namespace:ToDo.Mobile.Models"  
+             xmlns:local="clr-namespace:ToDo.Mobile.ViewModels"
+             xmlns:shared="clr-namespace:ToDo.Shared;assembly=ToDo.Shared"
+             xmlns:views="clr-namespace:ToDo.Mobile.Views;assembly=ToDo.Mobile"
              x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>
@@ -20,20 +21,15 @@
                 SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="model:Item">
-                        <Label Text="{Binding Text}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16" />
-                        <Label Text="{Binding Description}" 
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
+                    <StackLayout Padding="5">
+                        <Frame>
+                            <views:ItemSummaryView/>
+                        </Frame>
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
+                                    NumberOfTapsRequired="1"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
+                                    CommandParameter="{Binding .}">
                             </TapGestureRecognizer>
                         </StackLayout.GestureRecognizers>
                     </StackLayout>

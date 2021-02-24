@@ -11,11 +11,11 @@ namespace ToDo.Api.Test.Unit
         public async Task EmptyTodo_Add_Returns400()
         {
             // Arrange
-            var todo = new ToDoItem();
-            var controller = new ToDoController();
+            var todo = new TodoItem();
+            var controller = new TodoController();
 
             // Act
-            var result = await controller.AddToDo(todo);
+            var result = await controller.CreateToDo(todo);
 
             // Assert
             Assert.NotNull(result);

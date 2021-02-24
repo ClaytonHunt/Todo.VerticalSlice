@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ToDo.Mobile.Views;
+﻿using ToDo.Mobile.Views;
 using Xamarin.Forms;
 
 namespace ToDo.Mobile.ViewModels

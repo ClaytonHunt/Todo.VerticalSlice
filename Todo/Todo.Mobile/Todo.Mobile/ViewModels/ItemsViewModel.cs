@@ -2,28 +2,29 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using ToDo.Mobile.Models;
 using ToDo.Mobile.Views;
+using ToDo.Shared;
 using Xamarin.Forms;
 
 namespace ToDo.Mobile.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        private Item _selectedItem;
+        private TodoItem _selectedItem;
 
-        public ObservableCollection<Item> Items { get; }
+        public ObservableCollection<ItemSummaryViewModel> Items { get; }
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
-        public Command<Item> ItemTapped { get; }
+        public Command<TodoItem> ItemTapped { get; }
+        public Command<TodoItem> CompleteItem { get;set; }
 
         public ItemsViewModel()
         {
             Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Items = new ObservableCollection<ItemSummaryViewModel>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            ItemTapped = new Command<Item>(OnItemSelected);
+            ItemTapped = new Command<TodoItem>(OnItemSelected);
 
             AddItemCommand = new Command(OnAddItem);
         }
@@ -38,7 +39,13 @@ namespace ToDo.Mobile.ViewModels
                 var items = await DataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
-                    Items.Add(item);
+                    Items.Add(new ItemSummaryViewModel(
+                        new TodoItem
+                        {
+                            Id = item.Id, 
+                            IsCompleted = item.IsCompleted, 
+                            Text = item.Text
+                        }));
                 }
             }
             catch (Exception ex)
@@ -57,7 +64,7 @@ namespace ToDo.Mobile.ViewModels
             SelectedItem = null;
         }
 
-        public Item SelectedItem
+        public TodoItem SelectedItem
         {
             get => _selectedItem;
             set
@@ -72,7 +79,7 @@ namespace ToDo.Mobile.ViewModels
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
-        async void OnItemSelected(Item item)
+        async void OnItemSelected(TodoItem item)
         {
             if (item == null)
                 return;
